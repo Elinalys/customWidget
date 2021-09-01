@@ -22,7 +22,6 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            this._firstConnection = true;
             this.redraw();
         }
 
@@ -38,9 +37,7 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            if (this._firstConnection){
-                this.redraw();
-            }
+            this.redraw();
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
@@ -64,13 +61,13 @@
 
        //Getters and Setters
         get widgetText() {
-            this.set("coucou");
+            this.set("coucou1");
             let current_log = console.log;
             console.log = msg => {
             if (msg !== undefined) this.data.push(msg);
                 current_log.apply(null, arguments);
             }
-            return "coucou";
+            return "coucou2";
         }
 
         set widgetText(value) {
@@ -84,7 +81,7 @@
 
             var shadow = window.getSelection(this._shadowRoot);
             this._tagContainer = document.createElement(this._tagType);
-            var theText = document.createTextNode("coucou");    
+            var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText); 
             this._shadowRoot.appendChild(this._tagContainer);
         }
