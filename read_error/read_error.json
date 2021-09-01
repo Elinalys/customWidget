@@ -15,13 +15,6 @@
             "url": "https://elinalys.github.io/customWidget/read_error/read_error.js",
             "integrity": "",
             "ignoreIntegrity": true
-        },
-        {
-            "kind": "styling",
-            "tag": "com-synvance-readerror-sps",
-            "url": "https://elinalys.github.io/customWidget/read_error/read_error_sps.js",
-            "integrity": "",
-            "ignoreIntegrity": true
         }
     ],
     "properties": {
