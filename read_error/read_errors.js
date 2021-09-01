@@ -54,7 +54,7 @@
         onCustomWidgetResize(width, height){
         }
         */
-       
+
         data
          () {
             return {
@@ -69,7 +69,7 @@
             if (msg !== undefined) this.data.push(msg);
                 current_log.apply(null, arguments);
             }
-            return current_log;
+            return "coucou";
         }
 
         set widgetText(value) {
