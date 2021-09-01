@@ -4,7 +4,7 @@
     "name": "Read error",
     "description": "A text containing the errors of the web console",
     "newInstancePrefix": "Readerror",
-    "icon": "https://elinalys.github.io/customWidget/icon.png",
+    "icon": "https://Elinalys.github.io/customWidget/icon.png",
     "vendor": "EPERET",
     "eula": "EULA",
     "license": "1.0",
@@ -25,58 +25,8 @@
         }
     ],
     "properties": {
-        "textError": {
-            "type": "string",
-            "description": "Text error",
-            "default": "#ffffff"
-        },
-        "textColor": {
-            "type": "string",
-            "description": "Text Color value",
-            "default": "#000000"
-        },
-        "width": {
-            "type": "integer",
-            "default": 500
-        },
-        "height": {
-            "type": "integer",
-            "default": 500
-        }
     },
     "methods": {
-        "setTextError": {
-            "description": "Sets the error's text.",
-            "parameters": [
-                {
-                    "name": "newTextError",
-                    "type": "string",
-                    "description": "Error's text"
-                }
-            ],
-            "body": "this.textError = newTextError;"
-        },
-        "setTextColor": {
-            "description": "Sets the text color.",
-            "parameters": [
-                {
-                    "name": "newColor",
-                    "type": "string",
-                    "description": "Text color value"
-                }
-            ],
-            "body": "this.textColor = newColor;"
-        },
-        "getTextError": {
-            "returnType": "string",
-            "description": "Returns the error's text.",
-            "body": "return this.textError;"
-        },
-        "getTextColor": {
-            "returnType": "string",
-            "description": "Returns the text color.",
-            "body": "return this.textColor;"
-        }
     },
     "events": {
     }
