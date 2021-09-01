@@ -54,22 +54,26 @@
         onCustomWidgetResize(width, height){
         }
         */
+       
+        data
+         () {
+            return {
+                data: []
+            }
+        }
 
        //Getters and Setters
         get widgetText() {
-            return this._tagType;
+            let current_log = console.log;
+            console.log = msg => {
+            if (msg !== undefined) this.data.push(msg);
+                current_log.apply(null, arguments);
+            }
+            return current_log;
         }
 
         set widgetText(value) {
             this._tagText = value;
-        }
-
-        get headingType() {
-            return this._tagType;
-            }
-
-        set headingType(value) {
-            this._tagType = value;
         }
 
         redraw(){
