@@ -64,6 +64,7 @@
 
        //Getters and Setters
         get widgetText() {
+            this.set("coucou");
             let current_log = console.log;
             console.log = msg => {
             if (msg !== undefined) this.data.push(msg);
