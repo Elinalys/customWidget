@@ -1,0 +1,128 @@
+{
+    "id": "com.synvance.readerror",
+    "version": "1.0.0",
+    "name": "Read error",
+    "description": "A text containing the errors of the web console",
+    "newInstancePrefix": "Readerror",
+    "icon": "https://elinalys.github.io/customWidget/icon.png",
+    "vendor": "Synvance",
+    "eula": "EULA",
+    "license": "1.0",
+    "webcomponents": [
+        {
+            "kind": "main",
+            "tag": "com-synvance-readerror",
+            "url": "https://elinalys.github.io/customWidget/read_error/read_error.js",
+            "integrity": "",
+            "ignoreIntegrity": true
+        },
+        {
+            "kind": "styling",
+            "tag": "com-synvance-readerror-sps",
+            "url": "https://elinalys.github.io/customWidget/read_error/read_error_sps.js",
+            "integrity": "",
+            "ignoreIntegrity": true
+        }
+    ],
+    "properties": {
+        "textError": {
+            "type": "string",
+            "description": "Text error",
+            "default": "#ffffff"
+        },
+        "textColor": {
+            "type": "string",
+            "description": "Text Color value",
+            "default": "#000000"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "description": "Background color value",
+            "default": "#E1D7C5"
+        },
+        "tooltip": {
+            "type": "string",
+            "description": "Text tooltip",
+            "default": ""
+        },
+        "width": {
+            "type": "integer",
+            "default": 100
+        },
+        "height": {
+            "type": "integer",
+            "default": 100
+        }
+    },
+    "methods": {
+        "setTextError": {
+            "description": "Sets the error's text.",
+            "parameters": [
+                {
+                    "name": "newTextError",
+                    "type": "string",
+                    "description": "Error's text"
+                }
+            ],
+            "body": "this.textError = newTextError;"
+        },
+        "setBackgroundColor": {
+            "description": "Sets the background color.",
+            "parameters": [
+                {
+                    "name": "newColor",
+                    "type": "string",
+                    "description": "Background color value"
+                }
+            ],
+            "body": "this.backgroundColor = newColor;"
+        },
+        "setTextColor": {
+            "description": "Sets the text color.",
+            "parameters": [
+                {
+                    "name": "newColor",
+                    "type": "string",
+                    "description": "Text color value"
+                }
+            ],
+            "body": "this.textColor = newColor;"
+        },
+        "setTooltip": {
+            "description": "Sets the tooltip's text.",
+            "parameters": [
+                {
+                    "name": "newText",
+                    "type": "string",
+                    "description": "Tooltip's text"
+                }
+            ],
+            "body": "this.tooltip = newText;"
+        },
+        "getTextError": {
+            "returnType": "string",
+            "description": "Returns the error's text.",
+            "body": "return this.textError;"
+        },
+        "getBackgroundColor": {
+            "returnType": "string",
+            "description": "Returns the background color.",
+            "body": "return this.backgroundColor;"
+        },
+        "getTextColor": {
+            "returnType": "string",
+            "description": "Returns the text color.",
+            "body": "return this.textColor;"
+        },
+        "getTooltip": {
+            "returnType": "string",
+            "description": "Returns the tooltip's text.",
+            "body": "return this.tooltip;"
+        }
+    },
+    "events": {
+        "onClick": {
+            "description": "Called when the user clicks the button."
+        }
+    }
+}
