@@ -13,6 +13,11 @@
             this._tagContainer;
             this._tagType = "h1";
             this._tagText = "Hello World";
+            //Adding event handler for click events
+			this.addEventListener("click", event => {
+				var event = new Event("onClick");
+				this.dispatchEvent(event);
+            });
 		}
 
         //Fired when the widget is added to the html DOM of the page
@@ -49,7 +54,7 @@
         onCustomWidgetResize(width, height){
         }
         */
-       
+
        //Getters and Setters
         get widgetText() {
             return this._tagType;
@@ -57,7 +62,15 @@
 
         set widgetText(value) {
             this._tagText = value;
-}
+        }
+
+        get headingType() {
+            return this._tagType;
+            }
+
+        set headingType(value) {
+            this._tagType = value;
+        }
 
         redraw(){
             if (this._tagContainer){

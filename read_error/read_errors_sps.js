@@ -7,7 +7,7 @@
                 <table>
                     <tr>
                         <td>Text</td>
-                        <td><input id="aps_text" type="string"></td>
+                        <td><input id="text_sps" type="string"></td>
                     </tr>
                 </table>
             </fieldset>
@@ -34,11 +34,11 @@
         }
 
         set widgetText(newText) {
-            this._shadowRoot.getElementById("aps_text").value = newText;
+            this._shadowRoot.getElementById("text_sps").value = newText;
         }
         
         get widgetText() {
-            return this._shadowRoot.getElementById("aps_text").value;
+            return this._shadowRoot.getElementById("text_sps").value;
         }
 
 	}
