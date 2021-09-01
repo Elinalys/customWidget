@@ -15,9 +15,21 @@
             "url": "https://elinalys.github.io/customWidget/read_error/read_errors.js",
             "integrity": "",
             "ignoreIntegrity": true
+        },
+        {
+            "kind": "styling",
+            "tag": "com-synvance-readerrors",
+            "url": "https://elinalys.github.io/customWidget/read_error/read_errors_sps.js",
+            "integrity": "",
+            "ignoreIntegrity" : true
         }
     ],
     "properties": {
+        "widgetText": {
+            "type": "string",
+            "description": "The text to be displayed in the widget",
+            "default" : "Hello World"
+        }
     },
     "methods": {
     },
