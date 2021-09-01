@@ -1,58 +1,63 @@
-(function () {
-    let template = document.createElement("template");
-    template.innerHTML = `
-		<style>
-		:host {
-			display: block;
-		} 
-		</style>
-		
-		<div class="container">
-		</div>
-	`;
+(function()  {
+    let tmpl = document.createElement('template');
+    tmpl.innerHTML = `
+    `;
 
-    class ReadError extends HTMLElement {
-        constructor() {
-            super();
-            let shadowRoot = this.attachShadow({ mode: "open" });
-            shadowRoot.appendChild(template.content.cloneNode(true));
+    class ReadErrors extends HTMLElement {
 
-            this.$style = shadowRoot.querySelector('style');
-            this.$div = shadowRoot.querySelector('div');
+		constructor() {
+			super(); 
+			this._shadowRoot = this.attachShadow({mode: "open"});
+            this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
+            this._tagContainer;
+            this._tagType = "h1";
+            this._tagText = "Hello World";
+		}
 
-            this.addEventListener("click", event => {
-                var event = new Event("onClick");
-                this.dispatchEvent(event);
-            });
-
-            this._props = {};
+        //Fired when the widget is added to the html DOM of the page
+        connectedCallback(){
         }
 
-        render(textColor, backgroundColor, tooltip) {
-            this.$style.innerHTML = ':host {display: block;} .button {color: ' + textColor + ';background-color: ' + backgroundColor;
-            this.$div.innerHTML = '<button class="button" type="button" title="' + tooltip + '"></button>';
+         //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
+        disconnectedCallback(){
+        
         }
 
-        onCustomWidgetBeforeUpdate(changedProperties) {
-            this._props = { ...this._props, ...changedProperties };
+         //When the custom widget is updated, the Custom Widget SDK framework executes this function first
+		onCustomWidgetBeforeUpdate(oChangedProperties) {
+
+		}
+
+        //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
+		onCustomWidgetAfterUpdate(oChangedProperties) {
+            this.redraw();
+        }
+        
+        //When the custom widget is removed from the canvas or the analytic application is closed
+        onCustomWidgetDestroy(){
         }
 
-        onCustomWidgetAfterUpdate(changedProperties) {
-            if ("textColor" in changedProperties) {
-                this.$textColor = changedProperties["textColor"];
-            }
+        
+        //When the custom widget is resized on the canvas, the Custom Widget SDK framework executes the following JavaScript function call on the custom widget
+        // Commented out by default
+        /*
+        onCustomWidgetResize(width, height){
+        }
+        */
 
-            if ("backgroundColor" in changedProperties) {
-                this.$backgroundColor = changedProperties["backgroundColor"];
+        redraw(){
+            if (this._tagText != null){
+                if (this._tagContainer){
+                    this._tagContainer.parentNode.removeChild(this._tagContainer);
+                }
+        
+                var shadow = window.getSelection(this._shadowRoot);
+                this._tagContainer = document.createElement(this._tagType);
+                var theText = document.createTextNode(this._tagText);    
+                this._tagContainer.appendChild(theText); 
+                this._shadowRoot.appendChild(this._tagContainer);
             }
-
-            if ("tooltip" in changedProperties) {
-                this.$tooltip = changedProperties["tooltip"];
-            }
-
-            this.render(this.$textColor, this.$backgroundColor, this.$tooltip);
         }
     }
-
-    customElements.define("com-synvance-readerror", ReadError);
+    customElements.define("com-synvance-readerrors", ReadErrors);
 })();
