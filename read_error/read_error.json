@@ -4,7 +4,7 @@
     "name": "Read error",
     "description": "A text containing the errors of the web console",
     "newInstancePrefix": "Readerror",
-    "icon": "https://Elinalys.github.io/customWidget/icon.png",
+    "icon": "https://elinalys.github.io/customWidget/icon.png",
     "vendor": "EPERET",
     "eula": "EULA",
     "license": "1.0",
