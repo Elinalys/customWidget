@@ -1,9 +1,9 @@
 {
-    "id": "com.synvance.readerror",
+    "id": "com.synvance.readerrors",
     "version": "1.0.0",
-    "name": "Read error",
+    "name": "Read errors",
     "description": "A text containing the errors of the web console",
-    "newInstancePrefix": "Readerror",
+    "newInstancePrefix": "Readerrors",
     "icon": "https://elinalys.github.io/customWidget/icon.png",
     "vendor": "EPERET",
     "eula": "EULA",
@@ -11,8 +11,8 @@
     "webcomponents": [
         {
             "kind": "main",
-            "tag": "com-synvance-readerror",
-            "url": "https://elinalys.github.io/customWidget/read_error/read_error.js",
+            "tag": "com-synvance-readerrors",
+            "url": "https://elinalys.github.io/customWidget/read_error/read_errors.js",
             "integrity": "",
             "ignoreIntegrity": true
         }
