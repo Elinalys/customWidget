@@ -39,7 +39,14 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            this.redraw(new Date());
+            var logBackup = console.log;
+            var logMessages = [];
+
+            console.log = function() {
+                logMessages.push.apply(logMessages, arguments);
+                logBackup.apply(console, arguments);
+            };
+            this.redraw(logMessages);
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
