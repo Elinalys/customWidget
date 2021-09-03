@@ -10,9 +10,8 @@
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
-            this._firstConnection = false;
             this._tagContainer;
-            this._tagType = "h1";
+            this._tagType = "p";
             this._tagText = "Hello World1";
 
             //Adding event handler for click events
@@ -24,7 +23,6 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            this._firstConnection = true;
             this.redraw(); 
         }
 
@@ -40,9 +38,7 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            if (this._firstConnection){
-                this.redraw();
-            }
+            this.redraw();
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
