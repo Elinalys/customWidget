@@ -3,7 +3,7 @@
     tmpl.innerHTML = `
     `;
 
-    customElements.define("com-synvance-readerrors-sps", class ReadErrors extends HTMLElement {
+    customElements.define("com-synvance-readerrors", class ReadErrors extends HTMLElement {
 
 
 		constructor() {
