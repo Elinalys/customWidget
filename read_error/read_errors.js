@@ -64,8 +64,8 @@
             let btn = document.createElement("button");
             btn.innerHTML = "Submit";
             btn.setAttribute("type", "submit");
-            this._tagContainer.appendChild(btn);
             this._shadowRoot.appendChild(this._tagContainer);
+            this._shadowRoot.appendChild(btn);
 
         }
     
