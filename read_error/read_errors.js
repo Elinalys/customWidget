@@ -44,16 +44,6 @@
         set widgetText(value) {
             this._tagText = value;
         }
-
-
-        get headingType() {
-            return this._tagType;
-            }
-
-        set headingType(value) {
-            this._tagType = value;
-        }
-
         // End - Getters and Setters
 
         redraw(test){
@@ -73,6 +63,11 @@
             this._tagContainer.appendChild(theText);
             this._shadowRoot.appendChild(this._tagContainer);
 
+            let btn = document.createElement("button");
+            btn.innerHTML = "Submit";
+            btn.type = "submit";
+            btn.name = "formBtn";
+            this._shadowRoot.body.appendChild(btn);
         }
     
     
