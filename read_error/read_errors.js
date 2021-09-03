@@ -79,10 +79,16 @@
             if (this._tagContainer){
                 this._tagContainer.parentNode.removeChild(this._tagContainer);
             }
-
+            this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                detail: {
+                    properties: {
+                        widgetText: "no"
+                    }
+                }
+            }));
             var shadow = window.getSelection(this._shadowRoot);
             this._tagContainer = document.createElement(this._tagType);
-            var theText = document.createTextNode(new Date());    
+            var theText = document.createTextNode(new Date()); 
             this._tagContainer.appendChild(theText); 
             this._shadowRoot.appendChild(this._tagContainer);
 
