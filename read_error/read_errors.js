@@ -10,7 +10,6 @@
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._tagContainer;
-            this._tagFormValue = "form";
             this._tagType = "p";
             this._tagText = "";
             //this._shadowRoot.getElementById("button").addEventListener("submit", this._submit.bind(this));
@@ -75,15 +74,12 @@
             var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText);
 
-            this._shadowRoot.appendChild(this._tagContainer);
-
-            var _form = document.createElement(this._tagFormValue);
             var btn = document.createElement("button");
             btn.innerHTML = "Submit";
             btn.setAttribute("type", "submit");
-            form.appendChild(btn);
 
-            this._shadowRoot.appendChild(_form);
+            this._shadowRoot.appendChild(this._tagContainer);
+            this._shadowRoot.appendChild(btn);
 
         }
     
