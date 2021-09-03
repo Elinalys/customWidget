@@ -13,7 +13,7 @@
             //this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
             this._tagContainer;
             this._tagType = "p";
-            this._tagText = "Hello World1";
+            this._tagText = new Date();
 
             //Adding event handler for click events
 			this.addEventListener("click", event => {
