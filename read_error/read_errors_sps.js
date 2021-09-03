@@ -34,7 +34,7 @@
         }
 
         set widgetText(newText) {
-            this._shadowRoot.getElementById("text_sps").value = "toto"; //newText;
+            this._shadowRoot.getElementById("text_sps").value = newText;
         }
         
         get widgetText() {

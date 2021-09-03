@@ -37,7 +37,7 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            this.widgetText("valueazer");
+            //this.widgetText("valueazer");
             this.redraw();
         }
         
