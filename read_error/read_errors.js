@@ -74,16 +74,16 @@
             this._tagContainer = document.createElement(this._tagType);
             var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText);
-            
+
             this._shadowRoot.appendChild(this._tagContainer);
 
-            this._tagContainer = document.createElement(this._tagFormValue);
+            var _form = document.createElement(this._tagFormValue);
             var btn = document.createElement("button");
             btn.innerHTML = "Submit";
             btn.setAttribute("type", "submit");
-            this._tagContainer.appendChild(btn);
+            form.appendChild(btn);
 
-            this._shadowRoot.appendChild(this._tagContainer);
+            this._shadowRoot.appendChild(_form);
 
         }
     
