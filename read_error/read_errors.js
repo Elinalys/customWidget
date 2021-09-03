@@ -1,14 +1,14 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-    <style>
-    :host {
-        display: block;
-    } 
-    </style>
-    
-    <div class="container">
-    </div>
+        <style>
+        :host {
+            display: block;
+        } 
+        </style>
+        
+        <div class="container">
+        </div>
     `;
 
     class ReadErrors extends HTMLElement {
@@ -44,12 +44,12 @@
         }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
-		onCustomWidgetBeforeUpdate(oChangedProperties) {
+		onCustomWidgetBeforeUpdate(changedProperties) {
             this._props = { ...this._props, ...changedProperties };
 		}
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
-		onCustomWidgetAfterUpdate(oChangedProperties) {
+		onCustomWidgetAfterUpdate(changedProperties) {
             this.render();
             //this.widgetText.getElementById("id01").innerHTML = "Nop!";
         }
