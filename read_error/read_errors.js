@@ -76,8 +76,7 @@
                 if (msg !== undefined) this.data.push(msg);
                 current_log.apply(null, arguments);
             }
-            value = current_log + "tata" + test;
-            this._tagText = value;
+            this._tagText = "tata";
         }
 
         redraw(){
