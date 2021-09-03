@@ -38,8 +38,7 @@
         }
         
         get widgetText() {
-            //this._shadowRoot.getElementById("text_sps").value = "coucou5";
-            return "coucou5";
+            return this._shadowRoot.getElementById("text_sps").value;
         }
 
 	}

@@ -61,16 +61,16 @@
 
        //Getters and Setters
         get widgetText() {
-            this.set("coucou1");
+            return this._tagText;
+        }
+
+        set widgetText(value) {
             let current_log = console.log;
             console.log = msg => {
             if (msg !== undefined) this.data.push(msg);
                 current_log.apply(null, arguments);
             }
-            return "coucou2";
-        }
-
-        set widgetText(value) {
+            value = current_log;
             this._tagText = value;
         }
 
@@ -81,7 +81,7 @@
 
             var shadow = window.getSelection(this._shadowRoot);
             this._tagContainer = document.createElement(this._tagType);
-            var theText = document.createTextNode("Coucou6");//this._tagText);
+            var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText); 
             this._shadowRoot.appendChild(this._tagContainer);
         }
