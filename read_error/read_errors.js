@@ -5,7 +5,6 @@
 
     customElements.define("com-synvance-readerrors", class ReadErrors extends HTMLElement {
 
-
 		constructor() {
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
@@ -13,8 +12,8 @@
             //this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
             this._tagContainer;
             this._tagType = "p";
-            this._tagText = new Date();
-
+            this._tagText = "new Date()";
+            
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
@@ -40,6 +39,7 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
+            this._submit(e);
             this.redraw();
         }
         
