@@ -1,7 +1,8 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-    <h1 id="id01">Hello World</h1>
+    <div class="container">
+	</div>
     `;
 
     class ReadErrors extends HTMLElement {
@@ -10,6 +11,9 @@
 			super();
             let shadowRoot = this.attachShadow({ mode: "open" });
             shadowRoot.appendChild(template.content.cloneNode(true));
+
+            this.$div = shadowRoot.querySelector('div');
+
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
@@ -18,7 +22,7 @@
 		}
         
         render(){
-            this.widgetText.getElementById("id01").innerHTML = "New text!";
+            this.$div.innerHTML = '<p>test</p>';
         }
 
         //Fired when the widget is added to the html DOM of the page
@@ -38,8 +42,8 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            //this.render();
-            this.widgetText.getElementById("id01").innerHTML = "Nop!";
+            this.render();
+            //this.widgetText.getElementById("id01").innerHTML = "Nop!";
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
