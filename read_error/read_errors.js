@@ -20,7 +20,7 @@
 		}
         
         render(){
-            this.$div.innerHTML = "Oui";
+            this.$p.innerHTML = "Oui";
         }
 
         //Fired when the widget is added to the html DOM of the page
@@ -41,7 +41,7 @@
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
             //this.render();
-            this.$div.innerHTML = "Non";
+            this.$p.innerHTML = "Non";
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
