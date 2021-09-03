@@ -1,7 +1,7 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-    <p>Hello World</p>
+    <h1>Hello World</h1>
     `;
 
     class ReadErrors extends HTMLElement {
@@ -11,7 +11,7 @@
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._firstConnection = false;
-            this.$p = shadowRoot.querySelector('p');
+            this.$p = shadowRoot.querySelector('h1');
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
