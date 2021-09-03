@@ -13,6 +13,7 @@
             this._tagContainer;
             this._tagType = "h1";
             this._tagText = "Hello World";
+            this._tagError = "";
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
@@ -63,7 +64,7 @@
         }
 
        //Getters and Setters
-       /*
+       
         get widgetText() {
             return this._tagText;
         }
@@ -81,7 +82,12 @@
                 current_log.apply(null, arguments);
             }
             this._tagText = "tata";
-        }*/
+        }
+
+        set errors() {
+            this._tagError = "toto";
+            this.init();
+        }
 
         redraw(){
             if (this._tagContainer){

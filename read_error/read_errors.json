@@ -46,9 +46,10 @@
 			],
 			"body": "this.widgetText = newTextValue;"
 		},
-		"update": {
-			"description": "Update the text value of the widget",
-			"body": "this.widgetText = this.errors;"
+		"getErrors": {
+			"description": "Get the errors console",
+			"body": "return this.errors;",
+			"returnType": "string"
 		}
     },
     "events": {
