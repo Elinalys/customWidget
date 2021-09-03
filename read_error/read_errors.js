@@ -9,17 +9,28 @@
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
-            //this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
             this._tagContainer;
             this._tagType = "p";
             this._tagText = new Date();
-            
+            this._shadowRoot.getElementById("button").addEventListener("submit", this._submit.bind(this));
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
 				this.dispatchEvent(event);
             });
 		}
+
+        _submit(e) {
+            e.preventDefault();
+            test = "coucou";
+            this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                detail: {
+                    properties: {
+                        widgetText: test
+                    }
+                }
+            }));
+        }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
