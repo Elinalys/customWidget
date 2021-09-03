@@ -21,17 +21,6 @@
             });
 		}
 
-        _submit(e) {
-            e.preventDefault();
-            this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                detail: {
-                    properties: {
-                        widgetText: this.widgetText
-                    }
-                }
-            }));
-        }
-
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
 
@@ -39,15 +28,7 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            var test = new Date();
-            this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                detail: {
-                    properties: {
-                        widgetText: test
-                    }
-                }
-            }));
-            this.redraw();
+            this.redraw(new Date());
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
@@ -75,14 +56,21 @@
 
         // End - Getters and Setters
 
-        redraw(){
+        redraw(test){
+            this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                detail: {
+                    properties: {
+                        widgetText: test
+                    }
+                }
+            }));
             if (this._tagContainer){
                 this._tagContainer.parentNode.removeChild(this._tagContainer);
             }
             var shadow = window.getSelection(this._shadowRoot);
             this._tagContainer = document.createElement(this._tagType);
-            var theText = document.createTextNode(new Date()); 
-            this._tagContainer.appendChild(theText); 
+            var theText = document.createTextNode(test);
+            this._tagContainer.appendChild(theText);
             this._shadowRoot.appendChild(this._tagContainer);
 
         }
