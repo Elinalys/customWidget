@@ -12,6 +12,11 @@
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
 
             this.$h1 = shadowRoot.querySelector('h1');
+            
+            this.addEventListener("click", event => {
+                var event = new Event("onClick");
+                this.dispatchEvent(event);
+            });
 		}
 
         //Fired when the widget is added to the html DOM of the page
