@@ -39,7 +39,13 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            this._submit(e);
+            this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                detail: {
+                    properties: {
+                        widgetText: "tata"
+                    }
+                }
+            }));
             this.redraw();
         }
         
