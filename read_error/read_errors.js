@@ -46,7 +46,7 @@
                 logMessages.push.apply(logMessages, arguments);
                 logBackup.apply(console, arguments);
             };
-            this.redraw(logMessages);
+            this.redraw(logMessages[0]);
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
