@@ -22,11 +22,6 @@
             "type": "string",
             "description": "The text to be displayed in the widget",
             "default" : "Hello World"
-        },        
-        "errors": {
-            "type": "string",
-            "description": "test",
-            "default" : ""
         }
     },
     "methods": {
@@ -45,11 +40,6 @@
 				}
 			],
 			"body": "this.widgetText = newTextValue;"
-		},
-		"getErrors": {
-			"description": "Get the errors console",
-			"body": "return this.errors;",
-			"returnType": "string"
 		}
     },
     "events": {

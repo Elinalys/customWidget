@@ -11,9 +11,8 @@
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._firstConnection = false;
             this._tagContainer;
-            this._tagType = "h1";
+            this._tagType = "p";
             this._tagText = "Hello World";
-            this._tagError = "";
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
@@ -38,6 +37,7 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
+            this.widgetText("valueazer");
             this.redraw();
         }
         
@@ -53,16 +53,6 @@
         }
         */
 
-        data
-         () {
-            return {
-                data: []
-            }
-        }
-        update (){
-
-        }
-
        //Getters and Setters
        
         get widgetText() {
@@ -70,23 +60,7 @@
         }
 
         set widgetText(value) {
-            let current_log = console.log;
-            let test;
-            window.onerror = function myErrorHandler(err, url, line) {  
-                //Do some  stuff 
-                test = err // Uncaught SyntaxError: Invalid or unexpected token at Line no:- 1
-                return false;   // so you still log errors into console 
-            }
-            console.log = msg => {
-                if (msg !== undefined) this.data.push(msg);
-                current_log.apply(null, arguments);
-            }
-            this._tagText = "tata";
-        }
-
-        set errors() {
-            this._tagError = "toto";
-            this.init();
+            this._tagText = value;
         }
 
         redraw(){
