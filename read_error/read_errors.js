@@ -12,7 +12,7 @@
             //this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
             this._tagContainer;
             this._tagType = "p";
-            this._tagText = "new Date()";
+            this._tagText = new Date();
             
             //Adding event handler for click events
 			this.addEventListener("click", event => {
@@ -69,7 +69,7 @@
             }
             var shadow = window.getSelection(this._shadowRoot);
             this._tagContainer = document.createElement(this._tagType);
-            var theText = document.createTextNode(test);
+            var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText);
             this._shadowRoot.appendChild(this._tagContainer);
 
