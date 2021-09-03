@@ -33,7 +33,6 @@
                 logMessages.push.apply(logMessages, arguments);
                 logBackup.apply(console, arguments);
             };
-            console.log(logMessages)
             this.redraw("Bonjour");
         }
         
