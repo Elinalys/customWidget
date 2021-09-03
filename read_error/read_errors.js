@@ -13,9 +13,10 @@
 
             this.$h1 = shadowRoot.querySelector('h1');
             
-            this.addEventListener("click", event => {
-                var event = new Event("onClick");
-                this.dispatchEvent(event);
+            //Adding event handler for click events
+			this.addEventListener("click", event => {
+				var event = new Event("onClick");
+				this.dispatchEvent(event);
             });
 		}
 
