@@ -67,14 +67,14 @@
         */
 
        //Getters and Setters
-       
+       /*
         get widgetText() {
             return this._tagText;
         }
 
         set widgetText(value) {
             this._tagText = value;
-        }
+        }*/
 
     }
     customElements.define("com-synvance-readerrors", ReadErrors);
