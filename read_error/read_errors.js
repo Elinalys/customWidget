@@ -65,13 +65,18 @@
         }
 
         set widgetText(value) {
-            console.stdlog = console.log.bind(console);
-            console.logs = [];
-            console.log = function(){
-                console.logs.push(Array.from(arguments));
-                console.stdlog.apply(console, arguments);
+            let current_log = console.log;
+            let test;
+            window.onerror = function myErrorHandler(err, url, line) {  
+                //Do some  stuff 
+                test = err // Uncaught SyntaxError: Invalid or unexpected token at Line no:- 1
+                return false;   // so you still log errors into console 
             }
-            value = console.logs;
+            console.log = msg => {
+                if (msg !== undefined) this.data.push(msg);
+                current_log.apply(null, arguments);
+            }
+            value = current_log + "tata" + test;
             this._tagText = value;
         }
 
