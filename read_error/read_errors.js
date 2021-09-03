@@ -63,7 +63,6 @@
             this._tagContainer.appendChild(theText);
             let btn = document.createElement("button");
             btn.setAttribute("type", "submit");
-            document.body.appendChild(x);
             this._tagContainer.appendChild(btn);
             this._shadowRoot.appendChild(this._tagContainer);
 
