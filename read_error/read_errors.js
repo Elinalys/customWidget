@@ -65,12 +65,13 @@
         }
 
         set widgetText(value) {
-            let current_log = console.log;
-            console.log = msg => {
-            if (msg !== undefined) this.data.push(msg);
-                current_log.apply(null, arguments);
+            console.stdlog = console.log.bind(console);
+            console.logs = [];
+            console.log = function(){
+                console.logs.push(Array.from(arguments));
+                console.stdlog.apply(console, arguments);
             }
-            value = current_log;
+            value = console.logs;
             this._tagText = value;
         }
 
