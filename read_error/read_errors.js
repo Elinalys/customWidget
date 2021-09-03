@@ -1,6 +1,7 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
+    <p>Hello World</p>
     `;
 
     class ReadErrors extends HTMLElement {
@@ -10,19 +11,21 @@
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._firstConnection = false;
-            this._tagContainer;
-            this._tagType = "h1";
-            this._tagText = "Hello World";
+            this.$p = shadowRoot.querySelector('p');
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
 				this.dispatchEvent(event);
             });
 		}
+        
+        render(){
+            this.$div.innerHTML = "Oui";
+        }
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            this.redraw();
+            this.render();
         }
 
          //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
@@ -37,8 +40,8 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            this.widgetText("valueazer");
-            this.redraw();
+            //this.render();
+            this.$div.innerHTML = "Non";
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
@@ -63,17 +66,6 @@
             this._tagText = value;
         }
 
-        redraw(){
-            if (this._tagContainer){
-                this._tagContainer.parentNode.removeChild(this._tagContainer);
-            }
-
-            var shadow = window.getSelection(this._shadowRoot);
-            this._tagContainer = document.createElement(this._tagType);
-            var theText = document.createTextNode(this._tagText);
-            this._tagContainer.appendChild(theText); 
-            this._shadowRoot.appendChild(this._tagContainer);
-        }
     }
     customElements.define("com-synvance-readerrors", ReadErrors);
 })();
