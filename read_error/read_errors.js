@@ -1,14 +1,7 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <style>
-        :host {
-            display: block;
-        } 
-        </style>
-        
-        <div class="container">
-        </div>
+        <h1>Hello World</h1>
     `;
 
     class ReadErrors extends HTMLElement {
@@ -18,15 +11,11 @@
             let shadowRoot = this.attachShadow({ mode: "open" });
             shadowRoot.appendChild(template.content.cloneNode(true));
 
-            this.$div = shadowRoot.querySelector('div');
-
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
 				this.dispatchEvent(event);
             });
-
-            this._props = {};
 		}
         
         render(){
@@ -45,7 +34,6 @@
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
 		onCustomWidgetBeforeUpdate(changedProperties) {
-            this._props = { ...this._props, ...changedProperties };
 		}
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
