@@ -30,7 +30,7 @@
 		}
         
         render(){
-            this.$div.innerHTML = '<h1>test</h1>';
+            //this.$div.innerHTML = '<h1>test</h1>';
         }
 
         //Fired when the widget is added to the html DOM of the page
