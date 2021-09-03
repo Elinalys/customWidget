@@ -15,13 +15,6 @@
             "url": "https://elinalys.github.io/customWidget/read_error/read_errors.js",
             "integrity": "",
             "ignoreIntegrity": true
-        },
-        {
-            "kind": "styling",
-            "tag": "com-synvance-readerrors",
-            "url": "https://elinalys.github.io/customWidget/read_error/read_errors_sps.js",
-            "integrity": "",
-            "ignoreIntegrity" : true
         }
     ],
     "properties": {
@@ -29,6 +22,11 @@
             "type": "string",
             "description": "The text to be displayed in the widget",
             "default" : "Hello World"
+        },        
+        "errors": {
+            "type": "string",
+            "description": "test",
+            "default" : ""
         }
     },
     "methods": {
@@ -47,6 +45,10 @@
 				}
 			],
 			"body": "this.widgetText = newTextValue;"
+		},
+		"update": {
+			"description": "Update the text value of the widget",
+			"body": "this.widgetText = this.errors;"
 		}
     },
     "events": {

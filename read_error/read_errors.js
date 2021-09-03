@@ -58,8 +58,12 @@
                 data: []
             }
         }
+        update (){
+
+        }
 
        //Getters and Setters
+       /*
         get widgetText() {
             return this._tagText;
         }
@@ -77,7 +81,7 @@
                 current_log.apply(null, arguments);
             }
             this._tagText = "tata";
-        }
+        }*/
 
         redraw(){
             if (this._tagContainer){
