@@ -66,10 +66,9 @@
             btn.innerHTML = "Submit";
             btn.type = "submit";
             btn.name = "formBtn";
-            
+            this._tagContainer.appendChild(btn);
             this._shadowRoot.appendChild(this._tagContainer);
 
-            this._shadowRoot.appendChild(btn);
         }
     
     
