@@ -62,6 +62,7 @@
             var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText);
             let btn = document.createElement("button");
+            btn.innerHTML = "Submit";
             btn.setAttribute("type", "submit");
             this._tagContainer.appendChild(btn);
             this._shadowRoot.appendChild(this._tagContainer);
