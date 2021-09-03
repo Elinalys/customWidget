@@ -12,25 +12,12 @@
             this._tagContainer;
             this._tagType = "p";
             this._tagText = "";
-            //this._shadowRoot.getElementById("button").addEventListener("submit", this._submit.bind(this));
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
 				this.dispatchEvent(event);
             });
 		}
-
-        _submit(e) {
-            e.preventDefault();
-            test = "coucou";
-            this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                detail: {
-                    properties: {
-                        widgetText: test
-                    }
-                }
-            }));
-        }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
@@ -46,7 +33,8 @@
                 logMessages.push.apply(logMessages, arguments);
                 logBackup.apply(console, arguments);
             };
-            this.redraw(logMessages[0]);
+            console.log(logMessages)
+            this.redraw("Bonjour");
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
@@ -80,11 +68,11 @@
             this._tagContainer = document.createElement(this._tagType);
             var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText);
-
+            /*
             var btn = document.createElement("button");
             btn.innerHTML = "Submit";
             btn.setAttribute("type", "submit");
-
+            */
             this._shadowRoot.appendChild(this._tagContainer);
             this._shadowRoot.appendChild(btn);
 
