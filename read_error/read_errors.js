@@ -11,7 +11,7 @@
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
 
-            this.$h1 = shadowRoot.querySelector('h1');
+            //this.$h1 = shadowRoot.querySelector('h1');
             
             //Adding event handler for click events
 			this.addEventListener("click", event => {
@@ -55,7 +55,7 @@
         */
 
         redraw(){
-            this.$h1.innerHTML = "AOE"
+            //this.$h1.innerHTML = "AOE"
         }
     });
 })();
