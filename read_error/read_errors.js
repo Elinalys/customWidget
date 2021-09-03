@@ -1,8 +1,14 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
+    <style>
+    :host {
+        display: block;
+    } 
+    </style>
+    
     <div class="container">
-	</div>
+    </div>
     `;
 
     class ReadErrors extends HTMLElement {
@@ -24,7 +30,7 @@
 		}
         
         render(){
-            this.$div.innerHTML = '<p>test</p>';
+            this.$div.innerHTML = '<h1>test</h1>';
         }
 
         //Fired when the widget is added to the html DOM of the page
