@@ -18,7 +18,7 @@
 		}
         
         render(){
-            this.document.getElementById("id01").innerHTML = "New text!";
+            this.widgetText.getElementById("id01").innerHTML = "New text!";
         }
 
         //Fired when the widget is added to the html DOM of the page
@@ -39,7 +39,7 @@
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
             //this.render();
-            this.document.getElementById("id01").innerHTML = "Nop!";
+            this.widgetText.getElementById("id01").innerHTML = "Nop!";
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
