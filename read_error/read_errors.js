@@ -12,7 +12,7 @@
             this._tagContainer;
             this._tagType = "p";
             this._tagText = new Date();
-            this._shadowRoot.getElementById("button").addEventListener("submit", this._submit.bind(this));
+            //this._shadowRoot.getElementById("button").addEventListener("submit", this._submit.bind(this));
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
