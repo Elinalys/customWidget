@@ -61,13 +61,15 @@
             this._tagContainer = document.createElement(this._tagType);
             var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText);
-            this._shadowRoot.appendChild(this._tagContainer);
 
             let btn = document.createElement("button");
             btn.innerHTML = "Submit";
             btn.type = "submit";
             btn.name = "formBtn";
-            this._shadowRoot.body.appendChild(btn);
+            
+            this._shadowRoot.appendChild(this._tagContainer);
+
+            this._shadowRoot.appendChild(btn);
         }
     
     
