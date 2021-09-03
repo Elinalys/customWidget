@@ -10,8 +10,9 @@
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._tagContainer;
+            this._tagFormValue = "form";
             this._tagType = "p";
-            this._tagText = new Date();
+            this._tagText = "";
             //this._shadowRoot.getElementById("button").addEventListener("submit", this._submit.bind(this));
             //Adding event handler for click events
 			this.addEventListener("click", event => {
@@ -69,14 +70,20 @@
                 this._tagContainer.parentNode.removeChild(this._tagContainer);
             }
             var shadow = window.getSelection(this._shadowRoot);
+
             this._tagContainer = document.createElement(this._tagType);
             var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText);
-            let btn = document.createElement("button");
+            
+            this._shadowRoot.appendChild(this._tagContainer);
+
+            this._tagContainer = document.createElement(this._tagFormValue);
+            var btn = document.createElement("button");
             btn.innerHTML = "Submit";
             btn.setAttribute("type", "submit");
+            this._tagContainer.appendChild(btn);
+
             this._shadowRoot.appendChild(this._tagContainer);
-            this._shadowRoot.appendChild(btn);
 
         }
     
