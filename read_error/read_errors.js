@@ -13,7 +13,7 @@
             this._firstConnection = false;
             this._tagContainer;
             this._tagType = "h1";
-            this._tagText = "Hello World1";
+            this._tagText = "Hello World";
 
             //Adding event handler for click events
 			this.addEventListener("click", event => {
@@ -86,7 +86,7 @@
 
             var shadow = window.getSelection(this._shadowRoot);
             this._tagContainer = document.createElement(this._tagType);
-            var theText = document.createTextNode("coucou");    
+            var theText = document.createTextNode(new Date());    
             this._tagContainer.appendChild(theText); 
             this._shadowRoot.appendChild(this._tagContainer);
 
