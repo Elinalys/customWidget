@@ -26,9 +26,10 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-
+            
+            console.log("window.onerror");
             window.onerror = function(error, url, line) {
-                console.log("window.onerror");
+                
                 console.log(error + url + line);
             };
 
@@ -40,22 +41,14 @@
                 // new & array data
                 logMessages.push(Array.from(arguments));
             }
-            console.error("nnooo");
             console.error("You make a mistake");
             
-            console.log("console.errors");
-            console.log(logMessages);
-
             var textErrors = "";
             var i = 1;
 
             logMessages.forEach(element => {
                 textErrors += "Erreur " + i + " : \n";
-                console.log("element");
-                console.log(element);
                 element.forEach(tab => {
-                    console.log("tab");
-                    console.log(tab);
                     textErrors += tab + "\n";
                 });
                 i++;
