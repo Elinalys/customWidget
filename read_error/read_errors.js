@@ -37,8 +37,13 @@
             console.log("console.errors");
             console.log(console.errors);
 
-            let textErrors = "";
-            var i = 1;
+            textErrors = "";
+            i = 1;
+            test = console.errors;
+            
+            console.log("test");
+            console.log(test);
+
             console.errors.forEach(element => {
                 textErrors += "Erreur " + i + "\n";
                 console.log("element");
@@ -69,7 +74,7 @@
             console.log(textErrors);
             return textErrors;
         }
-        
+
         //When the custom widget is removed from the canvas or the analytic application is closed
         onCustomWidgetDestroy(){
         
