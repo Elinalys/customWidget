@@ -37,10 +37,10 @@
             console.log("console.errors");
             
             let textErrors = "";
-            for (var i=0;i<errors.length;i++){
+            for (var i=0;i<console.errors.length;i++){
                 textErrors += "\nErreur " + i + "\n";
-                for(var j=0;j<errors[i].length;j++){
-                    textErrors += errors[i][j];
+                for(var j=0;j<console.errors[i].length;j++){
+                    textErrors += console.errors[i][j];
                 }
             }
             console.log("Test du text :");
