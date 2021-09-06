@@ -113,10 +113,7 @@
         addButton(){        
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
-            this._tagBtn.onclick = function () {
-                this._tagText = this.getMessageError();
-                this.redraw();
-            };
+            this._tagBtn.onclick = this.getMessageError();
             this._shadowRoot.appendChild(this._tagBtn);
         }
     
