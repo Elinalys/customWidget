@@ -27,7 +27,7 @@
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
             console.defaultError = console.error.bind(console);
-            logMessages = [];
+            var logMessages = [];
             console.error = function(){
                 // default &  console.error()
                 console.defaultError.apply(console, arguments);
@@ -40,7 +40,7 @@
             console.log("console.errors");
             console.log(logMessages);
 
-            textErrors = "";
+            var textErrors = "";
             var i = 1;
 
             logMessages.forEach(element => {
