@@ -107,7 +107,7 @@
             this._tagBtn.textContent = "Submit";
             this._tagBtn.onclick = function () {
                 this._tagText = "Coucou";//this.getMessageError();
-                redraw();
+                read_errors.redraw();
             };
             this._shadowRoot.appendChild(this._tagBtn);
         }
