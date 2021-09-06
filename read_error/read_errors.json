@@ -51,7 +51,7 @@
     },
     "events": {
         "onClick": {
-            "description": "Called when the user clicks the Gauge"
+            "description": "Called when the user clicks the Jauge"
         }
     }
 }

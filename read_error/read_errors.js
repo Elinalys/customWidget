@@ -10,8 +10,9 @@
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._tagContainer;
+            this._tagBtn;
             this._tagType = "p";
-            this._tagText = "";
+            this._tagText = "Bonjour !!";
             //Adding event handler for click events
 			this.addEventListener("click", event => {
 				var event = new Event("onClick");
@@ -23,7 +24,8 @@
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
             this._firstConnection = true;
-            this.draw();
+            this.redraw();
+            this.addButton();
         }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
@@ -34,7 +36,6 @@
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) { 
             if (this._firstConnection){
-                this._tagText = "Bonjour tout le monde";
                 this.redraw();
             }          
         }
@@ -65,7 +66,7 @@
             }
             console.error("You make a mistake");
             
-            var textErrors = "";
+            var textErrors = "Coucou !\n";
             var i = 1;
 
             logMessages.forEach(element => {
@@ -101,16 +102,16 @@
             this._shadowRoot.appendChild(this._tagContainer);
         }
 
-        draw(){
-            this._tagContainer = document.createElement(this._tagType);
-            var theText = document.createTextNode(this._tagText);
-            this._tagContainer.appendChild(theText);
-        
-            var btn = document.createElement("button");
-            btn.innerHTML = "Submit";
-            btn.setAttribute("type", "submit");
-            this._shadowRoot.appendChild(this._tagContainer);
-            this._shadowRoot.appendChild(btn);
+        addButton(){        
+            this._tagBtn = document.createElement("button");
+            this._tagBtn.innerHTML = "Submit";
+            this._tagBtn.onclick = function () {
+                this._tagText = getMessageError();
+                redraw();
+            };
+            this._tagBtn.setAttribute("type", "submit");
+
+            this._shadowRoot.appendChild(this._tagBtn);
         }
     
     
