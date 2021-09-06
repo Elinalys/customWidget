@@ -114,7 +114,8 @@
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
             this._tagBtn.onclick = function () {
-                alert("Alerte générale");
+                this._tagText = this.getMessageError();
+                this.redraw();
             };
             this._shadowRoot.appendChild(this._tagBtn);
         }
