@@ -106,8 +106,46 @@
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
             this._tagBtn.onclick = function () {
-                this._tagText = "Coucou";//this.getMessageError();
-                read_errors.redraw();
+                console.defaultError = console.error.bind(console);
+                var logMessages = [];
+                console.error = function(){
+                    // default &  console.error()
+                    console.defaultError.apply(console, arguments);
+                    // new & array data
+                    logMessages.push(Array.from(arguments));
+                }
+                console.error("You make a mistake");
+                
+                var textErrors = "Coucou !\n";
+                var i = 1;
+
+                logMessages.forEach(element => {
+                    textErrors += "Erreur " + i + " : \n";
+                    element.forEach(tab => {
+                        textErrors += tab + "\n";
+                    });
+                    i++;
+                });
+                
+                console.log("textErrors");
+                console.log(textErrors);
+                this._tagText = textErrors;
+                this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                    detail: {
+                        properties: {
+                            widgetText: this._tagText
+                        }
+                    }
+                }));
+                if (this._tagContainer){
+                    this._tagContainer.parentNode.removeChild(this._tagContainer);
+                }
+                var shadow = window.getSelection(this._shadowRoot);
+    
+                this._tagContainer = document.createElement(this._tagType);
+                var theText = document.createTextNode(this._tagText);
+                this._tagContainer.appendChild(theText);
+                this._shadowRoot.appendChild(this._tagContainer);
             };
             this._shadowRoot.appendChild(this._tagBtn);
         }
