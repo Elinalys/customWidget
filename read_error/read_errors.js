@@ -14,7 +14,7 @@
             this._tagType = "p";
             this._tagText = "Bonjour !!";
             //Adding event handler for click events
-			this.addEventListener("click", event => {
+            this.addEventListener("click", event => {
 				var event = new Event("onClick");
 				this.dispatchEvent(event);
             });
@@ -103,14 +103,12 @@
         }
 
         addButton(){        
-            this._tagBtn = document.createElement("button");
+            this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
             this._tagBtn.onclick = function () {
-                this._tagText = getMessageError();
+                this._tagText = "Coucou";//this.getMessageError();
                 redraw();
             };
-            //this._tagBtn.setAttribute("type", "submit");
-
             this._shadowRoot.appendChild(this._tagBtn);
         }
     
