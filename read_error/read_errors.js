@@ -35,14 +35,22 @@
                 console.errors.push(Array.from(arguments));
             }
             console.log("console.errors");
-            
+            console.log(console.errors);
+
             let textErrors = "";
-            for (var i=0;i<console.errors.length;i++){
-                textErrors += "\nErreur " + i + "\n";
-                for(var j=0;j<console.errors[i].length;j++){
-                    textErrors += console.errors[i][j];
-                }
-            }
+            var i = 1;
+            console.errors.forEach(element => {
+                textErrors += "Erreur " + i + "\n";
+                console.log("element");
+                console.log(element);
+                element.forEach(tab => {
+                    console.log("tab");
+                    console.log(tab);
+                    textErrors += tab + "\n";
+                });
+                i++;
+            });
+
             console.log("Test du text :");
             console.log(textErrors);
 
