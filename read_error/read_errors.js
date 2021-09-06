@@ -27,44 +27,38 @@
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
             console.defaultError = console.error.bind(console);
-            errorsMessage = [];
+            logMessages = [];
             console.error = function(){
                 // default &  console.error()
                 console.defaultError.apply(console, arguments);
                 // new & array data
-                errorsMessage.push(Array.from(arguments));
+                logMessages.push(Array.from(arguments));
             }
+            console.error("nnooo");
+            console.error("You make a mistake");
+            
             console.log("console.errors");
-            console.log(errorsMessage);
+            console.log(logMessages);
 
             textErrors = "";
-            i = 1;
+            var i = 1;
 
-            errorsMessage.forEach(element => {
-                textErrors += "Erreur " + i + " :\n";
+            logMessages.forEach(element => {
+                textErrors += "Erreur " + i + " : \n";
+                console.log("element");
+                console.log(element);
                 element.forEach(tab => {
+                    console.log("tab");
+                    console.log(tab);
                     textErrors += tab + "\n";
                 });
                 i++;
             });
-
-            console.log("Test du text :");
+            
+            console.log("textErrors");
             console.log(textErrors);
 
-            this.redraw(textErrors);
-        }
-        
-        transformErrorsToString(errors){
-            let textErrors = "";
-            for (var i=0;i<errors.length;i++){
-                textErrors += "\nErreur " + i + "\n";
-                for(var j=0;j<errors[i].length;j++){
-                    textErrors += errors[i][j];
-                }
-            }
-            console.log("Test du text :");
-            console.log(textErrors);
-            return textErrors;
+            this.redraw("Bonjour");
         }
 
         //When the custom widget is removed from the canvas or the analytic application is closed
@@ -104,7 +98,7 @@
             btn.setAttribute("type", "submit");
             */
             this._shadowRoot.appendChild(this._tagContainer);
-            this._shadowRoot.appendChild(btn);
+            //this._shadowRoot.appendChild(btn);
 
         }
     
