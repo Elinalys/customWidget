@@ -54,7 +54,7 @@
             console.log("Test du text :");
             console.log(textErrors);
 
-            this.redraw(textErrors);
+            this.redraw("Bonjour");
         }
         
         transformErrorsToString(errors){
@@ -69,6 +69,7 @@
             console.log(textErrors);
             return textErrors;
         }
+        
         //When the custom widget is removed from the canvas or the analytic application is closed
         onCustomWidgetDestroy(){
         
