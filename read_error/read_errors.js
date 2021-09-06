@@ -58,7 +58,7 @@
             console.log("textErrors");
             console.log(textErrors);
 
-            this.redraw("Bonjour");
+            this.redraw("Bonjour1");
         }
 
         //When the custom widget is removed from the canvas or the analytic application is closed
