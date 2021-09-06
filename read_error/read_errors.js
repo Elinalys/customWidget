@@ -26,20 +26,32 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            /*
             console.defaultError = console.error.bind(console);
-            console.errors = [];
+            errorsMessage = [];
             console.error = function(){
                 // default &  console.error()
                 console.defaultError.apply(console, arguments);
                 // new & array data
-                console.errors.push(Array.from(arguments));
+                errorsMessage.push(Array.from(arguments));
             }
+            console.log("console.errors");
+            console.log(errorsMessage);
+
+            textErrors = "";
+            i = 1;
+
+            errorsMessage.forEach(element => {
+                textErrors += "Erreur " + i + " :\n";
+                element.forEach(tab => {
+                    textErrors += tab + "\n";
+                });
+                i++;
+            });
 
             console.log("Test du text :");
             console.log(textErrors);
-            */
-            this.redraw("Bonjour");
+
+            this.redraw(textErrors);
         }
         
         transformErrorsToString(errors){
@@ -71,20 +83,13 @@
         // End - Getters and Setters
 
         redraw(test){
-            window.onerror = function (msg, url, line) {
-                console.log("Message : " + msg );
-                console.log("url : " + url );
-                console.log("Line number : " + line );
-                if (error) message = error.stack;
-                this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                    detail: {
-                        properties: {
-                            widgetText: msg
-                        }
+            this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                detail: {
+                    properties: {
+                        widgetText: test
                     }
-                }));
-                ga('send', 'event', 'window.onerror', message, navigator.userAgent);
-              }
+                }
+            }));
             if (this._tagContainer){
                 this._tagContainer.parentNode.removeChild(this._tagContainer);
             }
