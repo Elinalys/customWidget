@@ -26,6 +26,11 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
+            
+            window.onerror = function(error, url, line) {
+                console.log(error + url + line)
+            };
+
             console.defaultError = console.error.bind(console);
             var logMessages = [];
             console.error = function(){
