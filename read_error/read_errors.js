@@ -1,7 +1,6 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <input type="submit" style="display:none;">
     `;
 
     customElements.define("com-synvance-readerrors", class ReadErrors extends HTMLElement {
@@ -11,8 +10,7 @@
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._tagContainer;
-            //this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
-            this._tagBtn ;//= this._tagBtn.bind(this);
+            this._tagBtn ;
             this._tagType = "p";
             this._tagText = "Bonjour !!";
             this.logMessages = [];
@@ -30,7 +28,7 @@
         connectedCallback(){
             this._firstConnection = true;
             this.redraw();
-            //this.addButton();
+            this.addButton();
         }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
@@ -60,7 +58,7 @@
         }
         // End - Getters and Setters
 
-        _submit(e) {
+        _submit() {
 			this._tagText = this.getMessageError();
             this.redraw();
 		}
@@ -120,10 +118,12 @@
         addButton(){        
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
+            this._tagBtn.addEventListener("click", _submit());
+            /*
             this._tagBtn.onclick = function () {
                 this._tagText = this.getMessageError();
                 this.redraw();
-            };
+            };*/
             this._shadowRoot.appendChild(this._tagBtn);
         }
     
