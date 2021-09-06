@@ -34,9 +34,10 @@
                 // new & array data
                 console.errors.push(Array.from(arguments));
             }
+            console.log("console.errors");
             console.log(console.errors);
-            
-            this.redraw("Bonjour");
+
+            this.redraw("Bonjour1");
         }
         
         //When the custom widget is removed from the canvas or the analytic application is closed
