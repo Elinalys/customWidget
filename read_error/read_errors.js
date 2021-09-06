@@ -23,7 +23,7 @@
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
             this._firstConnection = true;
-            this.redraw();
+            this.draw();
         }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
@@ -98,14 +98,19 @@
             this._tagContainer = document.createElement(this._tagType);
             var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText);
-            /*
+            this._shadowRoot.appendChild(this._tagContainer);
+        }
+
+        draw(){
+            this._tagContainer = document.createElement(this._tagType);
+            var theText = document.createTextNode(this._tagText);
+            this._tagContainer.appendChild(theText);
+        
             var btn = document.createElement("button");
             btn.innerHTML = "Submit";
             btn.setAttribute("type", "submit");
-            */
             this._shadowRoot.appendChild(this._tagContainer);
-            //this._shadowRoot.appendChild(btn);
-
+            this._shadowRoot.appendChild(btn);
         }
     
     
