@@ -34,27 +34,6 @@
                 // new & array data
                 console.errors.push(Array.from(arguments));
             }
-            console.log("console.errors");
-            console.log(console.errors);
-
-            textErrors = "";
-            i = 1;
-            test = console.errors;
-            
-            console.log("test");
-            console.log(test);
-
-            console.errors.forEach(element => {
-                textErrors += "Erreur " + i + "\n";
-                console.log("element");
-                console.log(element);
-                element.forEach(tab => {
-                    console.log("tab");
-                    console.log(tab);
-                    textErrors += tab + "\n";
-                });
-                i++;
-            });
 
             console.log("Test du text :");
             console.log(textErrors);
@@ -91,13 +70,20 @@
         // End - Getters and Setters
 
         redraw(test){
-            this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                detail: {
-                    properties: {
-                        widgetText: test
+            window.onerror = function (msg, url, line) {
+                console.log("Message : " + msg );
+                console.log("url : " + url );
+                console.log("Line number : " + line );
+                if (error) message = error.stack;
+                this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                    detail: {
+                        properties: {
+                            widgetText: msg
+                        }
                     }
-                }
-            }));
+                }));
+                ga('send', 'event', 'window.onerror', message, navigator.userAgent);
+              }
             if (this._tagContainer){
                 this._tagContainer.parentNode.removeChild(this._tagContainer);
             }
