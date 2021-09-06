@@ -10,7 +10,10 @@
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._tagContainer;
-            this._tagBtn;
+            //this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
+            this._tagBtn = document.createElement('button');
+            this._tagBtn.textContent = "Submit";
+            this._tagBtn.addEventListener("submit", this._submit.bind(this));
             this._tagType = "p";
             this._tagText = "Bonjour !!";
             this.logMessages = [];
@@ -28,7 +31,8 @@
         connectedCallback(){
             this._firstConnection = true;
             this.redraw();
-            this.addButton();
+            this._shadowRoot.appendChild(this._tagBtn);
+            //this.addButton();
         }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
@@ -57,6 +61,11 @@
             this._tagText = value;
         }
         // End - Getters and Setters
+
+        _submit(e) {
+			this._tagText = this.getMessageError();
+            this.redraw();
+		}
 
         getMessageError(){
             var i = 1;
@@ -113,7 +122,6 @@
         addButton(){        
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
-            this._tagBtn.onclick = this.getMessageError();
             this._shadowRoot.appendChild(this._tagBtn);
         }
     
