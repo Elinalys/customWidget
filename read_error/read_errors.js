@@ -26,12 +26,6 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            
-            console.log("window.onerror");
-            window.onerror = function(error, url, line) {
-                
-                console.log(error + url + line);
-            };
 
             console.defaultError = console.error.bind(console);
             var logMessages = [];
@@ -56,8 +50,8 @@
             
             console.log("textErrors");
             console.log(textErrors);
-
-            this.redraw("Bonjour1");
+            this._tagText = textErrors;
+            this.redraw();
         }
 
         //When the custom widget is removed from the canvas or the analytic application is closed
@@ -75,11 +69,11 @@
         }
         // End - Getters and Setters
 
-        redraw(test){
+        redraw(){
             this.dispatchEvent(new CustomEvent("propertiesChanged", {
                 detail: {
                     properties: {
-                        widgetText: test
+                        widgetText: this._tagText
                     }
                 }
             }));
