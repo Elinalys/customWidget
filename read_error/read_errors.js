@@ -26,13 +26,16 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            var logBackup = console.log;
-            var logMessages = [];
-
-            console.log = function() {
-                logMessages.push.apply(logMessages, arguments);
-                logBackup.apply(console, arguments);
-            };
+            console.defaultError = console.error.bind(console);
+            console.errors = [];
+            console.error = function(){
+                // default &  console.error()
+                console.defaultError.apply(console, arguments);
+                // new & array data
+                console.errors.push(Array.from(arguments));
+            }
+            console.log(console.errors);
+            
             this.redraw("Bonjour");
         }
         
