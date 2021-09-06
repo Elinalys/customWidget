@@ -13,7 +13,7 @@
             this._tagBtn ;
             this._tagType = "p";
             this._tagText = "Bonjour !!";
-            this.logMessages = [];
+            this._logMessages = [];
             this._firstConnection = false;
             this._isStarting = true;
 
@@ -77,12 +77,12 @@
                 // default &  console.error()
                 console.defaultError.apply(console, arguments);
                 // new & array data
-                this.logMessages.push(Array.from(arguments));
+                this._logMessages.push(Array.from(arguments));
             }
             console.error("You make a mistake");
             
 
-            this.logMessages.forEach(element => {
+            this._logMessages.forEach(element => {
                 textErrors += "Erreur " + i + " : \n";
                 element.forEach(tab => {
                     textErrors += tab + "\n";
