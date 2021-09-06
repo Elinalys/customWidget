@@ -35,11 +35,22 @@
                 console.errors.push(Array.from(arguments));
             }
             console.log("console.errors");
-            console.log(console.errors);
-
-            this.redraw("Bonjour1");
+            let test = transformErrorsToString(console.errors);
+            this.redraw(test);
         }
         
+        transformErrorsToString(errors){
+            let textErrors = "";
+            for (var i=0;i<errors.length;i++){
+                textErrors += "\nErreur " + i + "\n";
+                for(var j=0;j<errors[i].length;j++){
+                    textErrors += errors[i][j];
+                }
+            }
+            console.log("Test du text :");
+            console.log(textErrors);
+            return textErrors;
+        }
         //When the custom widget is removed from the canvas or the analytic application is closed
         onCustomWidgetDestroy(){
         
