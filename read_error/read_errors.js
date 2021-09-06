@@ -11,9 +11,7 @@
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._tagContainer;
             //this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
-            this._tagBtn = document.createElement('button');
-            this._tagBtn.textContent = "Submit";
-            this._tagBtn.addEventListener('button', this._submit.bind(this));
+            this._tagBtn = this._tagBtn.bind(this);
             this._tagType = "p";
             this._tagText = "Bonjour !!";
             this.logMessages = [];
@@ -31,8 +29,7 @@
         connectedCallback(){
             this._firstConnection = true;
             this.redraw();
-            this._shadowRoot.appendChild(this._tagBtn);
-            //this.addButton();
+            this.addButton();
         }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
@@ -62,7 +59,7 @@
         }
         // End - Getters and Setters
 
-        _submit() {
+        _submit(e) {
 			this._tagText = this.getMessageError();
             this.redraw();
 		}
@@ -122,6 +119,10 @@
         addButton(){        
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
+            this._tagBtn.onclick = function () {
+                this._tagText = this.getMessageError();
+                this.redraw();
+            };
             this._shadowRoot.appendChild(this._tagBtn);
         }
     
