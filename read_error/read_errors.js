@@ -13,7 +13,7 @@
             //this._shadowRoot.getElementById("form").addEventListener("submit", this._submit.bind(this));
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
-            this._tagBtn.addEventListener("submit", this._submit.bind(this));
+            this._tagBtn.addEventListener('button', this._submit.bind(this));
             this._tagType = "p";
             this._tagText = "Bonjour !!";
             this.logMessages = [];
@@ -62,7 +62,7 @@
         }
         // End - Getters and Setters
 
-        _submit(e) {
+        _submit() {
 			this._tagText = this.getMessageError();
             this.redraw();
 		}
