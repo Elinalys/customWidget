@@ -17,7 +17,14 @@
 				var event = new Event("onClick");
 				this.dispatchEvent(event);
             });
+            this._firstConnection = false;
 		}
+
+        //Fired when the widget is added to the html DOM of the page
+        connectedCallback(){
+            this._firstConnection = true;
+            this.redraw();
+        }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
@@ -25,11 +32,11 @@
 		}
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
-		onCustomWidgetAfterUpdate(oChangedProperties) {
-
-           
-            this._tagText = "Bonjour tout le monde";
-            this.redraw();
+		onCustomWidgetAfterUpdate(oChangedProperties) { 
+            if (this._firstConnection){
+                this._tagText = "Bonjour tout le monde";
+                this.redraw();
+            }          
         }
 
         //When the custom widget is removed from the canvas or the analytic application is closed
