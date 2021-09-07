@@ -16,7 +16,7 @@
             this._tagBtn.onclick = this._submit.bind(this);
             this._tagType = "p";
             this._tagText = "Bonjour !!";
-            this._logMessages = [];
+            this._logMessages = new Array();
             this._firstConnection = false;
             this._isStarting = true;
 
@@ -29,7 +29,7 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            console.log("test 8");
+            console.log("test 9");
             this._firstConnection = true;
             this.redraw();
             this.addButton();
