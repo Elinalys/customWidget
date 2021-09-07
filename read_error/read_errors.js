@@ -13,7 +13,7 @@
             this._tagBtn ;
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
-            this._tagBtn.onclick = this.getMessageError;
+            this._tagBtn.onclick = this.getMessageError.bind(this);
             this._tagType = "p";
             this._tagText = "Bonjour !!";
             this._logMessages = [];
@@ -29,7 +29,7 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            console.log("test 4");
+            console.log("test 5");
             this._firstConnection = true;
             this.redraw();
             this.addButton();
