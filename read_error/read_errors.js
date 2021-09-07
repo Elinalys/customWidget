@@ -21,14 +21,17 @@
             this._isStarting = true;
 
             //Adding event handler for click events
+            /*
             this.addEventListener("click", event => {
 				var event = new Event("onClick");
 				this.dispatchEvent(event);
             });
+            */
 		}
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
+            console.log("test 2?");
             this._firstConnection = true;
             this.redraw();
             this.addButton();
