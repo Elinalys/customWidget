@@ -61,7 +61,9 @@
         }
         // End - Getters and Setters
 
-        _submit() {
+        _submit(e) {
+			e.preventDefault();
+            alert("test submit");
 			this._tagText = this.getMessageError();
             this.redraw();
 		}
