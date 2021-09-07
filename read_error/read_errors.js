@@ -13,7 +13,7 @@
             this._tagBtn ;
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
-            this._tagBtn.addEventListener("submit", this._submit.bind(this));
+            this._tagBtn.onclick = this._submit;
             this._tagType = "p";
             this._tagText = "Bonjour !!";
             this._logMessages = [];
@@ -21,17 +21,15 @@
             this._isStarting = true;
 
             //Adding event handler for click events
-            /*
             this.addEventListener("click", event => {
 				var event = new Event("onClick");
 				this.dispatchEvent(event);
             });
-            */
 		}
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            console.log("test 2?");
+            console.log("test 3");
             this._firstConnection = true;
             this.redraw();
             this.addButton();
