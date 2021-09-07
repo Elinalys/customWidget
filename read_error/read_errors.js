@@ -64,7 +64,7 @@
 
         _submit(e) {
 			e.preventDefault();
-			this._tagText = this.getMessageError;
+			this._tagText = this.getMessageError();
             this.redraw();
 		}
 
