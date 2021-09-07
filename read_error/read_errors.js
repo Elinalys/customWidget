@@ -19,6 +19,17 @@
             this._firstConnection = false;
             this._isStarting = true;
 
+           
+            //Adding event handler for click events
+            this.addEventListener("click", event => {
+				var event = new Event("onClick");
+				this.dispatchEvent(event);
+            });
+		}
+
+        //Fired when the widget is added to the html DOM of the page
+        connectedCallback(){ 
+            
             // To avoid -> Uncaught RangeError: Maximum call stack size exceeded
             if(this._isStarting){
                 console.defaultError = console.error.bind(console);
@@ -29,16 +40,7 @@
                 console.error("I get somes errors :\n" + error + "\nurl : " + url + "\nline : " + line);	
             };
 
-            //Adding event handler for click events
-            this.addEventListener("click", event => {
-				var event = new Event("onClick");
-				this.dispatchEvent(event);
-            });
-		}
-
-        //Fired when the widget is added to the html DOM of the page
-        connectedCallback(){
-            console.log("test 12");
+            console.error("test 13");
             this._firstConnection = true;
             this._shadowRoot.appendChild(this._tagBtn);
             this.redraw();
@@ -99,8 +101,6 @@
             };*/
 
             console.error("You make a mistake");
-            console.error("You make a mistake 2");
-            console.error("You really make a mistake");
 
             logMessages.forEach(element => {
                 textErrors += "Erreur " + i + " : \n";
