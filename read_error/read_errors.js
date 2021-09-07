@@ -69,7 +69,8 @@
 
         getMessageError(){
             var i = 1;
-
+            var textErrors = "";
+            
             // To avoid -> Uncaught RangeError: Maximum call stack size exceeded
             if(this._isStarting){
                 console.defaultError = console.error.bind(console);
