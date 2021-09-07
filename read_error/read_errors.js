@@ -19,6 +19,16 @@
             this._firstConnection = false;
             this._isStarting = true;
 
+            // To avoid -> Uncaught RangeError: Maximum call stack size exceeded
+            if(this._isStarting){
+                console.defaultError = console.error.bind(console);
+                this._isStarting = false;
+            }
+            
+            window.onerror = function(error, url, line) {
+                console.error("I get somes errors :\n" + error + "\nurl : " + url + "\nline : " + line);	
+            };
+
             //Adding event handler for click events
             this.addEventListener("click", event => {
 				var event = new Event("onClick");
@@ -28,7 +38,7 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            console.log("test 11");
+            console.log("test 12");
             this._firstConnection = true;
             this._shadowRoot.appendChild(this._tagBtn);
             this.redraw();
@@ -70,12 +80,12 @@
         getMessageError(){
             var i = 1;
             var textErrors = "";
-
+/*
             // To avoid -> Uncaught RangeError: Maximum call stack size exceeded
             if(this._isStarting){
                 console.defaultError = console.error.bind(console);
                 this._isStarting = false;
-            }
+            }*/
 
             var logMessages = [];
             console.error = function(){
@@ -83,14 +93,14 @@
                 console.defaultError.apply(console, arguments);
                 // new & array data
                 logMessages.push(Array.from(arguments));
-            }
+            }/*
             window.onerror = function(error, url, line) {
                 console.error("I get somes errors :\n" + error + "\nurl : " + url + "\nline : " + line);	
-            };
+            };*/
+
             console.error("You make a mistake");
             console.error("You make a mistake 2");
             console.error("You really make a mistake");
-            
 
             logMessages.forEach(element => {
                 textErrors += "Erreur " + i + " : \n";
