@@ -70,7 +70,7 @@
         getMessageError(){
             var i = 1;
             var textErrors = "";
-            
+
             // To avoid -> Uncaught RangeError: Maximum call stack size exceeded
             if(this._isStarting){
                 console.defaultError = console.error.bind(console);
@@ -84,6 +84,9 @@
                 // new & array data
                 logMessages.push(Array.from(arguments));
             }
+            window.onerror = function(error, url, line) {
+                console.error("I get somes errors :\n" + error + "\nurl : " + url + "\nline : " + line);	
+            };
             console.error("You make a mistake");
             console.error("You make a mistake 2");
             console.error("You really make a mistake");
