@@ -11,6 +11,9 @@
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._tagContainer;
             this._tagBtn ;
+            this._tagBtn = document.createElement('button');
+            this._tagBtn.textContent = "Submit";
+            this._tagBtn.addEventListener("submit", this._submit.bind(this));
             this._tagType = "p";
             this._tagText = "Bonjour !!";
             this._logMessages = [];
@@ -115,15 +118,17 @@
             this._shadowRoot.appendChild(this._tagContainer);
         }
 
-        addButton(){        
+        addButton(){     
+            /*   
             this._tagBtn = document.createElement('button');
             this._tagBtn.textContent = "Submit";
-            this._tagBtn.addEventListener("submit", _submit());
-            /*
+            this._tagBtn.addEventListener("submit", this._submit.bind(this));
+            
             this._tagBtn.onclick = function () {
                 this._tagText = this.getMessageError();
                 this.redraw();
-            };*/
+            };
+            */
             this._shadowRoot.appendChild(this._tagBtn);
         }
     
