@@ -16,7 +16,7 @@
             this._tagBtn.onclick = this._submit.bind(this);
             this._tagType = "p";
             this._tagText = "Bonjour !!";
-            this._logMessages = new Array();
+            this._logMessages = [];
             this._firstConnection = false;
             this._isStarting = true;
 
@@ -29,7 +29,7 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            console.log("test 9");
+            console.log("test 10");
             this._firstConnection = true;
             this.redraw();
             this.addButton();
@@ -77,17 +77,17 @@
                 console.defaultError = console.error.bind(console);
                 this._isStarting = false;
             }
-
+            var logMessages = [];
             console.error = function(){
                 // default &  console.error()
                 console.defaultError.apply(console, arguments);
                 // new & array data
-                this._logMessages.push(Array.from(arguments));
+                logMessages.push(Array.from(arguments));
             }
             console.error("You make a mistake");
             
 
-            this._logMessages.forEach(element => {
+            logMessages.forEach(element => {
                 textErrors += "Erreur " + i + " : \n";
                 element.forEach(tab => {
                     textErrors += tab + "\n";
