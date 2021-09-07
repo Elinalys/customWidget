@@ -16,7 +16,6 @@
             this._tagBtn.onclick = this._submit.bind(this);
             this._tagType = "p";
             this._tagText = "Bonjour !!";
-            this._logMessages = [];
             this._firstConnection = false;
             this._isStarting = true;
 
@@ -29,10 +28,10 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
-            console.log("test 10");
+            console.log("test 11");
             this._firstConnection = true;
+            this._shadowRoot.appendChild(this._tagBtn);
             this.redraw();
-            this.addButton();
         }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
@@ -70,13 +69,13 @@
 
         getMessageError(){
             var i = 1;
-            var textErrors = "Coucou !\n";
 
             // To avoid -> Uncaught RangeError: Maximum call stack size exceeded
             if(this._isStarting){
                 console.defaultError = console.error.bind(console);
                 this._isStarting = false;
             }
+
             var logMessages = [];
             console.error = function(){
                 // default &  console.error()
@@ -85,6 +84,8 @@
                 logMessages.push(Array.from(arguments));
             }
             console.error("You make a mistake");
+            console.error("You make a mistake 2");
+            console.error("You really make a mistake");
             
 
             logMessages.forEach(element => {
@@ -95,7 +96,7 @@
                 i++;
             });
             
-            console.log("textErrors");
+            console.log("textErrors :");
             console.log(textErrors);
 
             return textErrors;
@@ -118,22 +119,7 @@
             var theText = document.createTextNode(this._tagText);
             this._tagContainer.appendChild(theText);
             this._shadowRoot.appendChild(this._tagContainer);
-        }
-
-        addButton(){     
-            /*   
-            this._tagBtn = document.createElement('button');
-            this._tagBtn.textContent = "Submit";
-            this._tagBtn.addEventListener("submit", this._submit.bind(this));
-            
-            this._tagBtn.onclick = function () {
-                this._tagText = this.getMessageError();
-                this.redraw();
-            };
-            */
-            this._shadowRoot.appendChild(this._tagBtn);
-        }
-    
+        }    
     
     });
         
